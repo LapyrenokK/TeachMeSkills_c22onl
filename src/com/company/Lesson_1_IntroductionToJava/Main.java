@@ -6,7 +6,7 @@ public class Main {
         Person person1 = new Person("Kir", "Lap", 31);
         printInfoPerson(person1);
 
-        System.out.printf("Hello %s in %x%x%x%x !!! \n", "word", 2, 0, 2, 3);
+        System.out.printf("Hello %s in %x%x !!! \n", "word", 32,35);
 
         //\u000d System.out.print("Выполняемый комментарий 0_0");
 
