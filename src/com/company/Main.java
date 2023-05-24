@@ -6,32 +6,45 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Exercise 1
-        PersonInformation personInformation = new PersonInformation();
-        personInformation.printInfoPerson(personInformation);
+//      Exercise 1
+        printPersonInf();
         System.out.println();
-        //Exercise 2
+//      Exercise 2
         changeCharToNumber();
         System.out.println();
-        //Exercise 3
+//      Exercise 3
         printBMI();
 
     }
-
-    static void changeCharToNumber() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input symbol: ");
-        char symbol = sc.next().charAt(0);
-        int number = (int) symbol;
-        System.out.println("Symbol " + symbol + "=" + number);
+    static void printPersonInf()
+    {
+        System.out.print("Write your Name: ");
+        String name = cout().nextLine();
+        System.out.print("Write your Surname: ");
+        String surname = cout().nextLine();
+        System.out.print("Write your age: ");
+        short age = cout().nextShort();
+        System.out.print("Write your height: ");
+        int height = cout().nextInt();
+        System.out.print("Write your weight: ");
+        double weight = cout().nextDouble();
+        System.out.println("\n You preson data: \n Your Name - "+name+" \n Your Surname - "+surname+" \n You Age - "+age+" \n You Height - "+height+" \n You Weight - "+weight);
     }
 
-    static void printBMI() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your height in meters: ");
-        double height = sc.nextDouble();
-        System.out.print("enter your weight in kilogram: ");
-        double weigth = sc.nextDouble();
+
+    static void changeCharToNumber()
+    {
+        System.out.print("Input symbol: ");
+        char symbol = cout().next().charAt(0);
+        System.out.println("Symbol " + symbol + "=" +(int)symbol);
+    }
+
+    static void printBMI()
+    {
+        System.out.print("Enter your height : ");
+        double height = cout().nextDouble()/100;
+        System.out.print("Enter your weight : ");
+        double weigth = cout().nextDouble();
         double heightM2 = Math.pow(height, 2);
         double bmi = weigth / heightM2;
         String formattedBMI = String.format("%.2f", bmi);
@@ -53,5 +66,8 @@ public class Main {
         } else {
             System.out.println("Classification - Obese Class III");
         }
+    }
+    static Scanner cout (){
+        return new Scanner(System.in);
     }
 }
