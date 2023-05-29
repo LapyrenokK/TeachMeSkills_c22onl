@@ -1,229 +1,244 @@
 package com.company;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Exercise 1.1");
-        System.out.println(getMonthWithSwitchCase());
+        System.out.println("Exercise 0");
+        printIsNumberInArray();
         System.out.println();
-
-        System.out.println("Exercise 1.2");
-        System.out.println(getMonthWithIfElse());
+        System.out.println("Exercise 1");
+        printDeleteNumInArr();
         System.out.println();
-
-        System.out.println("Exercise 1.3");
-        System.out.println(getEvenOddResult());
+        System.out.println("Exercise 2");
+        printMinMaxMid();
         System.out.println();
-
-        System.out.println("Exercise 1.4");
-        System.out.println(getWeather());
+        System.out.println("Exercise 3");
+        arraysСomparison();
         System.out.println();
-
-        System.out.println("Exercise 1.5");
-        System.out.println(getColorOfTheReinbow());
+        System.out.println("Exercise 4");
+        printRandomArrayRange5to10();
         System.out.println();
-
-        System.out.println("Exercise 2.1");
-        printOddNuumbers();
+        System.out.println("Exercise 5");
+        printArrOddNumSwapZero();
         System.out.println();
-
-        System.out.println("Exercise 2.2");
-        printReverseNumbers();
+        System.out.println("Exercise 6");
+        printStringArrayName();
         System.out.println();
-
-        System.out.println("Exercise 2.3");
-        getResultSum();
+        System.out.println("Exercise 7");
+        sortBubble();
         System.out.println();
-
-        System.out.println("Exercise 2.4");
-        printNumbers7_98();
-        System.out.println();
-
-        System.out.println("Exercise 2.5");
-        printFirstNumbers10();
-        System.out.println();
-
-        System.out.println("Exercise 2.6");
-        printSquareNumbers();
-        System.out.println();
-
-        System.out.println("Exercise 3.1");
-        printFibNums();
-        System.out.println();
-
-        System.out.println("Exercise 3.2");
-        printDepositBank();
-        System.out.println();
-
-        System.out.println("Exercise 3.3");
-        printMultiplicationTable();
-
-
     }
 
-    static String getMonthWithSwitchCase() {
-        System.out.print("Method switch-case.\n Enter season number: ");
-        switch (cout().nextInt()) {
-            case 1, 2, 12:
-                return "Winter!";
-            case 3, 4, 5:
-                return "Spring!";
-            case 6, 7, 8:
-                return "Summer!";
-            case 9, 10, 11:
-                return "Autumn!";
-            default:
-                return "Тo such month!!!";
-        }
+    static void sortBubble() {
+        int[] arr = getRandomArray(20, -100, 100);
+        System.out.print("Random array: ");
+        printArrTypeInt(arr);
+        sortedArray(arr);
+        System.out.print("Array bubble sort: ");
+        printArrTypeInt(arr);
     }
 
-    static String getMonthWithIfElse() {
-        System.out.print("Method if-else-if: \n Enter season number: ");
-        int season = cout().nextInt();
-        if (season == 1 || season == 2 || season == 12) {
-            return "Winter!";
-        } else if (season == 3 || season == 4 || season == 5) {
-            return "Spring!";
-        } else if (season == 6 || season == 7 || season == 8) {
-            return "Summer!";
-        } else if (season == 9 || season == 10 || season == 11) {
-            return "Autumn!";
-        } else {
-            return "Тo such month!!!";
-        }
-    }
-
-    static String getEvenOddResult() {
-        System.out.print("Enter your number: ");
-        int number = cout().nextInt();
-        if (number % 2 == 1) {
-            return "Number: " + number + " - Odd.";
-        } else {
-            return "Number: " + number + " - Even.";
-        }
-    }
-
-    static String getWeather() {
-        System.out.print("Enter temperature: ");
-        int temperature = cout().nextInt();
-        if (temperature > -5) {
-            return "Тепло";
-        } else if (-5 >= temperature && temperature > -20) {
-            return "Нормально";
-        } else if (-20 >= temperature) {
-            return "Холодно";
-        } else {
-            return null;
-        }
-    }
-
-    static String getColorOfTheReinbow() {
-        System.out.print("Enter number rainbow: ");
-        switch (cout().nextInt()) {
-            case 1:
-                return "RED";
-            case 2:
-                return "ORANGE";
-            case 3:
-                return "YELLOW";
-            case 4:
-                return "GREEN";
-            case 5:
-                return "CYAN";
-            case 6:
-                return "BLUE";
-            case 7:
-                return "VIOLET";
-            default:
-                return "It's not the color of the rainbow...";
-        }
-    }
-
-    static void printOddNuumbers() {
-        for (int i = 1; i <= 99; i++) {
-            System.out.print(i + " ");
-            i++;
-        }
-    }
-
-    static void printReverseNumbers() {
-        int i = 5;
+    static void printRandomArrayRange5to10() {
+        int length;
         do {
-            System.out.println(i);
-            i--;
-        } while (i >= 1);
+            System.out.print("Enter length of the array from 5 to 10: ");
+            length = cout().nextInt();
+            if (!getLengthFormatExc(length,10,5))
+                System.out.println("Please enter a valid length in range from 5 to 10...");
+        } while (!getLengthFormatExc(length,10,5));
+        int[] arr = getRandomArray(length, -10, 10);
+        System.out.print("Array: ");
+        printArrTypeInt(arr);
+        printSortArrOnlyEvenNum(arr);
     }
 
-    static void getResultSum() {
-        System.out.print("Enter your number: ");
+    static void printArrOddNumSwapZero() {
+        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
+        System.out.print("Old array: ");
+        printArrTypeInt(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+                arr[i] = 0;
+            }
+        }
+        System.out.print("New array: ");
+        printArrTypeInt(arr);
+    }
+
+    static void printStringArrayName() {
+        String[] names = new String[]{"Cassandra", "Lisa", "Sandra", "Laura", "Sylvia", "Martin", "Barbara"};
+        System.out.print("Not sorted Array: ");
+        printArrTypeString(names);
+        Arrays.sort(names);
+        System.out.print("Sorted Array: ");
+        printArrTypeString(names);
+    }
+
+    static void printIsNumberInArray() {
+        System.out.print("Enter your number from -100 and to 100: ");
         int number = cout().nextInt();
+        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
+        searchNumberInArray(arr, number);
+        System.out.print("Array: ");
+        printArrTypeInt(arr);
+    }
+
+    static void printDeleteNumInArr() {
+        System.out.print("Enter your number from -100 and to 100: ");
+        int number = cout().nextInt();
+        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
+        System.out.print("Array: ");
+        printArrTypeInt(arr);
+        deleteNumbersInArray(arr, number);
+    }
+
+    static void printMinMaxMid() {
+        System.out.print("Enter length of the array : ");
+        int size = cout().nextInt();
+        int[] arr = getRandomArray(size, 100, -100);
+        System.out.print("Array: ");
+        printArrTypeInt(arr);
+        System.out.println("Middle = " + String.format("%.2f", getMidValue(arr)));
+    }
+
+    static void arraysСomparison() {
+        int[] arr1 = new int[]{1, 3, 5, 7, 9};
+        int[] arr2 = new int[]{2, 4, 6, 8, 10};
+        System.out.print("Array 1: ");
+        printArrTypeInt(arr1);
+        System.out.println("Middle 1= " + getMidValue(arr1));
+        System.out.print("Array 2: ");
+        printArrTypeInt(arr2);
+        System.out.println("Middle 1= " + getMidValue(arr2));
+
+        if (getMidValue(arr1) > getMidValue(arr2)) {
+            System.out.println("Array 1 more than Array2 ");
+        } else if (getMidValue(arr1) < getMidValue(arr2)) {
+            System.out.println("Array 2 more than Array1 ");
+        } else {
+            System.out.println("Array 2 equals Array1 ");
+        }
+    }
+
+    static boolean getLengthFormatExc(int input,int max,int min) {
+        if (input >= min && input <= max) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static int[] sortedArray(int[]arr){
+        int sort = 0;
+        boolean doSort = false;
+        while (!doSort) {
+            doSort = true;
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i + 1] < arr[i]) {
+                    sort = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = sort;
+                    doSort = false;
+                }
+            }
+        }
+        return arr;
+    }
+
+    static void printSortArrOnlyEvenNum(int[] arr) {
         int count = 0;
-        for (int i = 1; i <= number; i++) {
-            count += i;
-        }
-        System.out.println(count);
-    }
-
-    static void printNumbers7_98() {
-        int i = 0;
-        while (i < 98) {
-            i += 7;
-            System.out.print(i + " ");
-        }
-    }
-
-    static void printFirstNumbers10() {
-        for (int i = 0; i >= (-5 * 9); i -= 5) {
-            System.out.print(i + " ");
-        }
-    }
-
-    static void printSquareNumbers() {
-        int num = 10;
-        for (int i = 10; i <= 20; i++) {
-            System.out.println(i + "^2= " + i * i);
-        }
-    }
-
-    static void printFibNums() {
-
-        int sum = 1, fib1 = 1, fib2 = 1, i = 0;
-        for (int n = 0; n < 11; n++) {
-            while (i <= n - 2) {
-                sum = fib1 + fib2;
-                fib1 = fib2;
-                fib2 = sum;
-                i++;
+        boolean isNum = false;
+        int[] newArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                newArr[i - count] = arr[i];
+            } else {
+                isNum = true;
+                count++;
             }
-            System.out.println(sum + " ");
+        }
+        if (isNum == true) {
+            System.out.println("Array of even numbers: " + Arrays.toString(Arrays.copyOf(newArr, newArr.length - count)));
         }
     }
 
-    static void printDepositBank() {
-        System.out.print("Enter your deposit amount in $: ");
-        float money = cout().nextFloat();
-        System.out.print("Enter number of months for deposit: ");
-        int months = cout().nextInt();
-        float sum = money, procent = 7 / 100f;
-        for (int i = 1; i <= months; i++) {
-            sum = sum * procent + sum;
-        }
-        String formatted = String.format("%.2f", sum);
-        System.out.println("Final amount = " + formatted + "$");
-    }
 
-    static void printMultiplicationTable() {
-        for (int i = 1; i < 10; i++) {
-            for (int j = 1; j < 10; j++) {
-                System.out.println("["+i + "*" + j + " = " + i * j+"]");
+    static void getMinMaxValue(int[] arr) {
+        int min = 0, max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            } else if (arr[i] < min) {
+                min = arr[i];
             }
-            System.out.println();
+        }
+        System.out.println("Min= " + min + "\n" + "Max= " + max);
+    }
+
+    static double getMidValue(int[] arr) {
+        double mid = 0;
+        for (int i = 0; i < arr.length; i++) {
+            mid += arr[i];
+        }
+        return mid / arr.length;
+    }
+
+    static int[] getRandomArray(int size, int min, int max) {
+        int range = max - min + 1;
+        int[] arr = new int[size];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((Math.random() * range) + min);
+        }
+        return arr;
+    }
+
+    static void searchNumberInArray(int[] arr, int number) {
+        int count = 0;
+        boolean isNum = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                isNum = true;
+                count++;
+            }
+        }
+        if (isNum == true) {
+            System.out.println("Number '" + number + "' found " + count + " times");
+        } else {
+            System.out.println("Number '" + number + "' is not in the array");
         }
     }
 
+    static void deleteNumbersInArray(int[] arr, int number) {
+        int count = 0;
+        boolean isNum = false;
+        int[] newArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                isNum = true;
+                count++;
+            } else {
+                newArr[i - count] = arr[i];
+            }
+        }
+        if (isNum == true) {
+            System.out.println("Number '" + number + "' delete " + count + " times");
+            System.out.println("New array: " + Arrays.toString(Arrays.copyOf(newArr, newArr.length - count)));
+        } else {
+            System.out.println("Number '" + number + "' is not in the array");
+        }
+    }
+
+    static void printArrTypeInt(int[] arr) {
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void printArrTypeString(String[] arr) {
+        System.out.println(Arrays.toString(arr));
+    }
 
     static Scanner cout() {
         return new Scanner(System.in);
