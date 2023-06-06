@@ -1,246 +1,219 @@
 package com.company;
 
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Exercise 0");
-        printIsNumberInArray();
-        System.out.println();
-        System.out.println("Exercise 1");
-        printDeleteNumInArr();
-        System.out.println();
-        System.out.println("Exercise 2");
-        printMinMaxMid();
-        System.out.println();
-        System.out.println("Exercise 3");
-        arraysСomparison();
-        System.out.println();
-        System.out.println("Exercise 4");
-        printRandomArrayRange5to10();
-        System.out.println();
-        System.out.println("Exercise 5");
-        printArrOddNumSwapZero();
-        System.out.println();
-        System.out.println("Exercise 6");
-        printStringArrayName();
-        System.out.println();
-        System.out.println("Exercise 7");
-        sortBubble();
-        System.out.println();
+        System.out.println("Task1: ");
+        increaseNumArraay();
+        System.out.println("\nTask2: ");
+        paintChessboard();
+        System.out.println("\nTask3: ");
+        printMultiply2DArays();
+        System.out.println("\nTask4: ");
+        printSumArray();
+        System.out.println("\nTask5: ");
+        printDiagonalArray();
+        System.out.println("\nTask6: ");
+        printSort2DArray();
+
     }
 
-    static void sortBubble() {
-        int[] arr = getRandomArray(20, -100, 100);
-        System.out.print("Random array: ");
-        printArrTypeInt(arr);
-        sortedArray(arr);
-        System.out.print("Array bubble sort: ");
-        printArrTypeInt(arr);
+    static void increaseNumArraay() {
+        int[][][] arr = new int[][][]{{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}, {13, 14, 15}}, {{16, 17, 18}, {19, 20, 21}, {22, 23, 24}, {25, 26, 27}}};
+        System.out.println("Old array: ");
+        printInteger3DArr(arr);
+        System.out.print("Enter your number for increase: ");
+        int num = cin().nextInt();
+        increaInArray(arr, num);
+        System.out.println("New array: ");
+        printInteger3DArr(arr);
     }
 
-    static void printRandomArrayRange5to10() {
-        int length;
-        do {
-            System.out.print("Enter length of the array from 5 to 10: ");
-            length = cout().nextInt();
-            if (!getLengthFormatExc(length,10,5))
-                System.out.println("Please enter a valid length in range from 5 to 10...");
-        } while (!getLengthFormatExc(length,10,5));
-        int[] arr = getRandomArray(length, -10, 10);
-        System.out.print("Array: ");
-        printArrTypeInt(arr);
-        printSortArrOnlyEvenNum(arr);
-    }
+    static void paintChessboard() {
+        String[][] arrayStr = new String[8][8];
 
-    static void printArrOddNumSwapZero() {
-        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
-        System.out.print("Old array: ");
-        printArrTypeInt(arr);
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 != 0) {
-                arr[i] = 0;
-            }
-        }
-        System.out.print("New array: ");
-        printArrTypeInt(arr);
-    }
-
-    static void printStringArrayName() {
-        String[] names = new String[]{"Cassandra", "Lisa", "Sandra", "Laura", "Sylvia", "Martin", "Barbara"};
-        System.out.print("Not sorted Array: ");
-        printArrTypeString(names);
-        Arrays.sort(names);
-        System.out.print("Sorted Array: ");
-        printArrTypeString(names);
-    }
-
-    static void printIsNumberInArray() {
-        System.out.print("Enter your number from -100 and to 100: ");
-        int number = cout().nextInt();
-        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
-        searchNumberInArray(arr, number);
-        System.out.print("Array: ");
-        printArrTypeInt(arr);
-    }
-
-    static void printDeleteNumInArr() {
-        System.out.print("Enter your number from -100 and to 100: ");
-        int number = cout().nextInt();
-        int[] arr = new int[]{4, -10, 55, 6, 22, -77, 4, 1, -98, 9, -7, 20, 33, -40, 15, 1, -10, 4};
-        System.out.print("Array: ");
-        printArrTypeInt(arr);
-        deleteNumbersInArray(arr, number);
-    }
-
-    static void printMinMaxMid() {
-        System.out.print("Enter length of the array : ");
-        int size = cout().nextInt();
-        int[] arr = getRandomArray(size, 100, -100);
-        System.out.print("Array: ");
-        printArrTypeInt(arr);
-        System.out.println("Middle = " + String.format("%.2f", getMidValue(arr)));
-    }
-
-    static void arraysСomparison() {
-        int[] arr1 = new int[]{1, 3, 5, 7, 9};
-        int[] arr2 = new int[]{2, 4, 6, 8, 10};
-        System.out.print("Array 1: ");
-        printArrTypeInt(arr1);
-        System.out.println("Middle 1= " + getMidValue(arr1));
-        System.out.print("Array 2: ");
-        printArrTypeInt(arr2);
-        System.out.println("Middle 1= " + getMidValue(arr2));
-
-        if (getMidValue(arr1) > getMidValue(arr2)) {
-            System.out.println("Array 1 more than Array2 ");
-        } else if (getMidValue(arr1) < getMidValue(arr2)) {
-            System.out.println("Array 2 more than Array1 ");
-        } else {
-            System.out.println("Array 2 equals Array1 ");
-        }
-    }
-
-    static boolean getLengthFormatExc(int input,int max,int min) {
-        if (input >= min && input <= max) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    static int[] sortedArray(int[]arr){
-        int sort = 0;
-        boolean doSort = false;
-        while (!doSort) {
-            doSort = true;
-            for (int i = 0; i < arr.length - 1; i++) {
-                if (arr[i + 1] < arr[i]) {
-                    sort = arr[i + 1];
-                    arr[i + 1] = arr[i];
-                    arr[i] = sort;
-                    doSort = false;
+        for (int i = 0; i < arrayStr.length; ++i) {
+            for (int j = 0; j < arrayStr[i].length; ++j) {
+                if ((i + j) % 2 == 0) {
+                    arrayStr[i][j] = "W";
+                } else {
+                    arrayStr[i][j] = "B";
                 }
             }
         }
-        return arr;
+
+        print2DStringArr(arrayStr);
     }
 
-    static void printSortArrOnlyEvenNum(int[] arr) {
-        int count = 0;
-        boolean isNum = false;
-        int[] newArr = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 == 0) {
-                newArr[i - count] = arr[i];
-            } else {
-                isNum = true;
-                count++;
-            }
-        }
-        if (isNum == true) {
-            System.out.println("Array of even numbers: " + Arrays.toString(Arrays.copyOf(newArr, newArr.length - count)));
-        }
-    }
-
-
-    static void getMinMaxValue(int[] arr) {
-        int min = 0, max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-            } else if (arr[i] < min) {
-                min = arr[i];
-            }
-        }
-        System.out.println("Min= " + min + "\n" + "Max= " + max);
-    }
-
-    static double getMidValue(int[] arr) {
-        double mid = 0;
-        for (int i = 0; i < arr.length; i++) {
-            mid += arr[i];
-        }
-        return mid / arr.length;
-    }
-
-    static int[] getRandomArray(int size, int min, int max) {
-        int range = max - min + 1;
-        int[] arr = new int[size];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) ((Math.random() * range) + min);
-        }
-        return arr;
-    }
-
-    static void searchNumberInArray(int[] arr, int number) {
-        int count = 0;
-        boolean isNum = false;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == number) {
-                isNum = true;
-                count++;
-            }
-        }
-        if (isNum == true) {
-            System.out.println("Number '" + number + "' found " + count + " times");
+    static void printMultiply2DArays() {
+        int[][] arrOne = new int[][]{{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 0, 0}};
+        int[][] arrTwo = new int[][]{{1, 2, 3}, {1, 1, 1}, {0, 0, 0}, {2, 1, 0}};
+        if (ruleForMultiplyingArrays(arrOne, arrTwo)) {
+            System.out.println("The number of columns of the first array is not equal to the number of rows of the second array");
         } else {
-            System.out.println("Number '" + number + "' is not in the array");
+            printInteger2DArrStyleLine(getMultiplyArray(arrOne, arrTwo));
         }
+
     }
 
-    static void deleteNumbersInArray(int[] arr, int number) {
-        int count = 0;
-        boolean isNum = false;
-        int[] newArr = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == number) {
-                isNum = true;
-                count++;
-            } else {
-                newArr[i - count] = arr[i];
+    static void printSumArray() {
+        int[][] arrInt = new int[][]{{1, 2, 1}, {1, 5, 1}, {3, 3, 4}};
+        int sum = 0;
+
+        for (int i = 0; i < arrInt.length; ++i) {
+            for (int j = 0; j < arrInt[i].length; ++j) {
+                sum += arrInt[i][j];
             }
         }
-        if (isNum == true) {
-            System.out.println("Number '" + number + "' delete " + count + " times");
-            System.out.println("New array: " + Arrays.toString(Arrays.copyOf(newArr, newArr.length - count)));
+
+        System.out.println("Sum of all array elements = " + sum);
+    }
+
+    static void printDiagonalArray() {
+        int[][] arrInt = new int[][]{{1, 2, 1, 4, 4}, {1, 5, 1, 8, 5}, {3, 3, 4, 9, 3}, {3, 5, 6, 7, 2}, {4, 7, 8, 2, 3}};
+        if (arrInt.length != arrInt[0].length) {
+            System.out.println("The array must contain the same number of rows and columns");
         } else {
-            System.out.println("Number '" + number + "' is not in the array");
+            getDiagonalArray(arrInt);
         }
     }
 
-    static void printArrTypeInt(int[] arr) {
-        System.out.println(Arrays.toString(arr));
+    static void printSort2DArray() {
+        int[][] arrInt = new int[][]{{3, 8, 1, 7, 2, 1}, {1, 4, 9, 2, 5, 1}, {8, 1, 9, 3, 3, 4, 5}};
+        for (int i = 0; i < arrInt.length; ++i) {
+            for (int j = 0; j < arrInt[0].length; ++j) {
+                int temp = 0;
+                boolean doSort = false;
+                while (!doSort) {
+                    doSort = true;
+                    for (int k = 0; k < arrInt[i].length - 1; k++) {
+                        if (arrInt[i][k + 1] < arrInt[i][k]) {
+                            temp = arrInt[i][k + 1];
+                            arrInt[i][k + 1] = arrInt[i][k];
+                            arrInt[i][k] = temp;
+                            doSort = false;
+                        }
+                    }
+                }
+            }
+        }
+        printInteger2DArrStyleMatrix(arrInt);
     }
 
-    static void printArrTypeString(String[] arr) {
-        System.out.println(Arrays.toString(arr));
+    static void printInteger3DArr(int[][][] array3D) {
+        int[][][] var1 = array3D;
+        int var2 = array3D.length;
+
+        for (int var3 = 0; var3 < var2; ++var3) {
+            int[][] outer = var1[var3];
+            int[][] var5 = outer;
+            int var6 = outer.length;
+
+            for (int var7 = 0; var7 < var6; ++var7) {
+                int[] midle = var5[var7];
+                int[] var9 = midle;
+                int var10 = midle.length;
+
+                for (int var11 = 0; var11 < var10; ++var11) {
+                    int inter = var9[var11];
+                    System.out.print(inter + "\t");
+                }
+
+                System.out.print("\t");
+            }
+
+            System.out.println("\t");
+        }
+
     }
 
-    static Scanner cout() {
+    static void printInteger2DArrStyleMatrix(int[][] array2D) {
+
+        for (int[] inter : array2D) {
+            for (int outer : inter) {
+                System.out.print(outer + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    static void printInteger2DArrStyleLine(int[][] array2D) {
+
+        for (int[] inter : array2D) {
+            for (int outer : inter) {
+                System.out.print(outer + " ");
+            }
+            System.out.print("\t");
+
+        }
+    }
+
+
+    static void print2DStringArr(String[][] array2D) {
+        for (String[] inter : array2D) {
+            for (String outer : inter) {
+                System.out.print(outer + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    static int[][] getMultiplyArray(int[][] arrOne, int[][] arrTwo) {
+        int[][] newArr = new int[arrOne.length][arrTwo[0].length];
+
+        for (int i = 0; i < arrOne.length; ++i) {
+            for (int j = 0; j < arrTwo[0].length; ++j) {
+                int sum = 0;
+
+                for (int k = 0; k < arrOne[i].length; ++k) {
+                    sum += arrOne[i][k] * arrTwo[k][j];
+                }
+
+                newArr[i][j] = sum;
+            }
+        }
+
+        return newArr;
+    }
+
+    static int[][] getDiagonalArray(int[][] arrInt) {
+        for (int i = 0; i < arrInt.length; ++i) {
+            for (int j = 0; j < arrInt[i].length; ++j) {
+                if (i != j && j != arrInt[i].length - i - 1) {
+                    System.out.print("\t");
+                } else {
+                    System.out.print(arrInt[i][j] + "\t");
+                }
+            }
+
+            System.out.println();
+        }
+
+        return arrInt;
+    }
+
+    static boolean ruleForMultiplyingArrays(int[][] arrOne, int[][] arrTwo) {
+        return arrOne[0].length != arrTwo.length;
+    }
+
+    static Scanner cin() {
         return new Scanner(System.in);
     }
+
+    static void increaInArray(int[][][] array3D, int numCin) {
+        for (int outer = 0; outer < array3D.length; ++outer) {
+            for (int midle = 0; midle < array3D[outer].length; ++midle) {
+                for (int inter = 0; inter < array3D[outer][midle].length; ++inter) {
+                    array3D[outer][midle][inter] += numCin;
+                    System.out.print("\t");
+                }
+            }
+        }
+
+        System.out.println();
+    }
+
 }
