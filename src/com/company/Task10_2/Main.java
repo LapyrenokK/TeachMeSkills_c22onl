@@ -1,15 +1,22 @@
 package com.company.Task10_2;
 
+
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        String s = "Hello my friends";
-        System.out.println(s.replaceAll(".","$0$0"));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i<s.length();i++){
-            char letter = s.charAt(i);
-            stringBuilder.append(letter).append(letter);
-        }
-        System.out.println(stringBuilder);
+        double[] a = {3,5};
+        double[] b = {5,9};
+        Vector vector = new Vector(a,b);
+        System.out.printf("Length of vector A = %.2f\n",vector.getLengthVectorA());
+        System.out.printf("Length of vector B = %.2f\n",vector.getLengthVectorB());
+        System.out.println("Scalar product = "+vector.getScalar());
+        System.out.println("Addition of vectors A and B = "+ Arrays.toString(vector.getAdditionVectors()));
+        System.out.println("Difference of vectors A and B = "+Arrays.toString(vector.getDifferenceVectors()));
+        vector.equalsVectors();
+        vector.getInfo();
+
+
     }
 }
