@@ -1,15 +1,25 @@
 package com.company.Task10_2;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        String s = "Hello my friends";
-        System.out.println(s.replaceAll(".","$0$0"));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i<s.length();i++){
-            char letter = s.charAt(i);
-            stringBuilder.append(letter).append(letter);
+        try (Scanner scin = new Scanner(System.in);) {
+            System.out.println("Enter your login...");
+            String login = scin.nextLine();
+
+            System.out.println("Enter your password...");
+            String password = scin.nextLine();
+
+            System.out.println("Confirm your password...");
+            String confirmPassword = scin.nextLine();
+
+            ClassWithStaticMethod.registration(login, password, confirmPassword);
+        } catch (WrongPasswordException e) {
+            e.printStackTrace();
+        } catch (WrongLoginException e) {
+            e.printStackTrace();
         }
-        System.out.println(stringBuilder);
     }
 }

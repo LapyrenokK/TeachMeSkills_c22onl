@@ -2,43 +2,28 @@ package com.company.Task10_1;
 
 
 public class StringWorking {
-    static String theFirstTwoBlocks(String documentNumber) {
-        return documentNumber.substring(0, 4) + documentNumber.substring(8, 13);
-    }
 
-    static String stringWithoutLetters(String documentNumber) {
-        return documentNumber.replaceAll("[a-zA-Z]", "*");
-    }
-
-    static String singleLetters(String documentNumber) {
-        return documentNumber.substring(5, 8) + "/" + documentNumber.substring(14, 17) + "/" + documentNumber.charAt(19) + "/" + documentNumber.charAt(21);
-    }
-
-    static StringBuilder singleLetterWithFormat(String documentNumber) {
-        return stringBuilder(singleLetters(documentNumber)).insert(0, "Letters:");
-    }
-
-    static String searchRowInDocument(String row, String documentNumber) {
+    static String searchRowInDocument(String row, String documentNumber) throws CorrectStringException{
         if (documentNumber.toLowerCase().matches(".*" + row + ".*") || documentNumber.toUpperCase().matches(".*" + row + ".*")) {
             return "Yes, such a line is present in the document...";
         } else {
-            return "No, there is no such line in the document...";
+            throw new CorrectStringException("There is no \"abc\" in this line !!!");
         }
     }
 
-    static String checkingFirstLinesInDocument(int row, String documentNumber) {
+    static String checkingFirstLinesInDocument(int row, String documentNumber) throws CorrectNumberException {
         if (documentNumber.substring(0, 3).equalsIgnoreCase(String.valueOf(row))) {
             return "Yes, such a line is present in the document...";
         } else {
-            return "No, there is no such line in the document...";
+            throw new CorrectNumberException("There is no \"555\" in this line !!!");
         }
     }
 
-    static String checkingLastLinesInDocument(String row, String documentNumber) {
+    static String checkingLastLinesInDocument(String row, String documentNumber) throws CorrectStringWithNumberException {
         if (documentNumber.substring(18, 22).equalsIgnoreCase(row)) {
             return "Yes, such a line is present in the document...";
         } else {
-            return "No, there is no such line in the document...";
+            throw new CorrectStringWithNumberException("There is no \"1a2b\" in this line !!!");
         }
     }
 
