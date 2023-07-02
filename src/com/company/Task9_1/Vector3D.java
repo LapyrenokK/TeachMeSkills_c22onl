@@ -1,4 +1,4 @@
-package com.company.Task10_1;
+package com.company.Task9_1;
 
 public class Vector3D implements Vector {
     private final String info = "This is a vector for a three-dimensional coordinate system";

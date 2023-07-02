@@ -1,4 +1,4 @@
-package com.company.Task10_1;
+package com.company.Task9_1;
 
 public interface Vector {
 
