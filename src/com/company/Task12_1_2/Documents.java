@@ -67,14 +67,14 @@ public class Documents {
         if (!stringWorking.substring(0, 6).equals("docnum")
                 && !stringWorking.substring(0, 8).equals("contract")
                 &&stringWorking.length() == 15) {
-            return ":\n- Document number does not start with \"docnum\" or \"contract\" sequence!!!";
+            return ":\n- Document number does not start with \"docnum\" or \"contract\" sequence!!!\n";
         }else if (stringWorking.length() != 15
                 &&!stringWorking.substring(0, 6).equals("docnum")
                 &&!stringWorking.substring(0, 8).equals("contract")) {
-            return ":\n- Document number does not start with \"docnum\" or \"contract\" sequence. " +
-                    "\n- The length of the document number is not 15, but is " + docNum.length()+"!!!";
+            return ":\n- Document number does not start with \"docnum\" or \"contract\" sequence!!! " +
+                    "\n- The length of the document number is not 15, but is " + docNum.length()+"!!!\n";
         }else if (stringWorking.length() != 15){
-            return ":\n- The length of the document number is not 15, but is " + docNum.length()+"!!!";
+            return ":\n- The length of the document number is not 15, but is " + docNum.length()+"!!!\n";
         }
 return null;
     }

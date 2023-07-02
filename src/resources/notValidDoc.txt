@@ -1,7 +1,10 @@
-doccccct123456:
-- Document number does not start with "docnum" or "contract" sequence. 
+doccccct123450:
+- Document number does not start with "docnum" or "contract" sequence!!! 
 - The length of the document number is not 15, but is 14!!!
+
 contract12345:
 - The length of the document number is not 15, but is 13!!!
+
 cont12345678911:
 - Document number does not start with "docnum" or "contract" sequence!!!
+
