@@ -1,2 +1,0 @@
-docnum123456789
-contract1234567
