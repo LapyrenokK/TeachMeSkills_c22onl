@@ -1,26 +1,20 @@
-docnum000000222 - Valid document 
-
 documt123456789 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!)
 
 contra111122222 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!)
 
-contract1234567 - Valid document 
-
-doccccct123450 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!, and the length of the document number is not 15, but is 14 !!!)
-
-1111111contract - Document number not valid (number does not start with "docnum" or "contract" sequence !!!)
-
-docnum77777 - Document number not valid (the length of the document number is not 15, but is 11 !!!)
-
-contract1111 - Document number not valid (the length of the document number is not 15, but is 12 !!!)
-
-contrac22222222 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!)
-
-contract12345 - Document number not valid (the length of the document number is not 15, but is 13 !!!)
-
 contract0000001 - Valid document 
+
+contract1234567 - Valid document 
 
 12345docnum2222 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!)
 
+doccccct123450 - Document number not valid (number does not start with "docnum" or "contract" sequence !!!, and the length of the document number is not 15, but is 14 !!!)
+
+docnum77777 - Document number not valid (the length of the document number is not 15, but is 11 !!!)
+
 docnum123456789 - Valid document 
+
+contract1111 - Document number not valid (the length of the document number is not 15, but is 12 !!!)
+
+contract12345 - Document number not valid (the length of the document number is not 15, but is 13 !!!)
 
