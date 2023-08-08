@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
-        Collection<String> nameStudents = new ArrayList<>(Arrays.asList(
+        Collection<String> nameStudents = Arrays.asList(
                 "Kirill",
                 "Dima",
                 "Ilya",
@@ -20,7 +20,7 @@ public class Main {
                 "Nasty",
                 "Arina",
                 "Aleksander",
-                "kiriLL"));
+                "kiriLL");
 
         System.out.println(nameStudents.stream().filter(s->s.equalsIgnoreCase("KIRILL")).toList());
         System.out.println(nameStudents.stream().filter(s->s.startsWith("a")|s.startsWith("A")).toList());
