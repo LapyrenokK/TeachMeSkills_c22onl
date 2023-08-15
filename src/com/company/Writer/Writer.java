@@ -1,4 +1,4 @@
-package com.company.Task17_1;
+package com.company.Writer;
 
 public interface Writer {
     String writer();

@@ -1,8 +1,8 @@
-package com.company.Task17_1;
+package com.company.Reader;
 
 public class ConsoleReader implements Reader{
     @Override
-    public void reader(String message) {
+    public void consoleReader(String message) {
         System.out.println(message);;
     }
 }
